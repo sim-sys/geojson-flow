@@ -1,5 +1,5 @@
 # geojson-flow
-## GeoJSON type declaration for Flow
+## GeoJSON type declarations for Flow
 
 ## How to install
 
