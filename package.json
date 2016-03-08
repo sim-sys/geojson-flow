@@ -9,6 +9,6 @@
   "author": "Vladimir Kurchatkin <vladimir.kurchatkin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "flow-bin": "^0.22.0"
+    "flow-bin": "^0.22.1"
   }
 }

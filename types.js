@@ -1,11 +1,17 @@
 /* @flow */
 
+'use strict';
+
+const assert = require('assert');
+
+assert(false, `geojson-flow shouldn't be used at runtime`);
+
 /**
  * 2. GeoJSON Objects
  * http://geojson.org/geojson-spec.html#geojson-objects
  */
 
-type GeoJSONObject =
+export type GeoJSONObject =
   | GeometryObject
   | Feature
   | FeatureCollection;
@@ -20,7 +26,7 @@ type Common = { // TODO inline
  * http://geojson.org/geojson-spec.html#geometry-objects
  */
 
-type GeometryObject =
+export type GeometryObject =
   | Point
   | MultiPoint
   | LineString
@@ -51,7 +57,7 @@ export type Point = {
  * http://geojson.org/geojson-spec.html#multipoint
  */
 
-type MultiPoint = {
+export type MultiPoint = {
   type: 'MultiPoint',
   coordinates: Array<Position>
 };
@@ -61,7 +67,7 @@ type MultiPoint = {
  * http://geojson.org/geojson-spec.html#linestring
  */
 
-type LineString = {
+export type LineString = {
   type: 'LineString',
   coordinates: Array<Position> // TODO it should be > 2, but we can't validate it statically (maybe [Position, Position] would work?)
 };
@@ -71,7 +77,7 @@ type LineString = {
  * http://geojson.org/geojson-spec.html#multilinestring
  */
 
-type MultiLineString = {
+export type MultiLineString = {
   type: 'MultiLineString',
   coordinates: Array<Array<Position>>
 };
@@ -81,7 +87,7 @@ type MultiLineString = {
  * http://geojson.org/geojson-spec.html#polygon
  */
 
-type Polygon = {
+export type Polygon = {
   type: 'Polygon',
   coordinates: Array<Array<Position>>
 };
@@ -91,7 +97,7 @@ type Polygon = {
  * http://geojson.org/geojson-spec.html#multipolygon
  */
 
-type MultiPolygon = {
+export type MultiPolygon = {
   type: 'MultiPolygon',
   coordinates: Array<Array<Array<Position>>>
 };
@@ -101,7 +107,7 @@ type MultiPolygon = {
  * http://geojson.org/geojson-spec.html#geometry-collection
  */
 
-type GeometryCollection = {
+export type GeometryCollection = {
   type: 'GeometryCollection',
   geometries: Array<GeometryObject> // TODO make generic
 };
@@ -111,7 +117,7 @@ type GeometryCollection = {
  * http://geojson.org/geojson-spec.html#geometry-collection
  */
 
-type Feature = { // TODO make generic
+export type Feature = { // TODO make generic
   type: 'Feature',
   geometry: ?GeometryObject,
   properties: ?{},
