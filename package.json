@@ -1,0 +1,14 @@
+{
+  "name": "geojson-flow",
+  "version": "1.0.0",
+  "description": "GeoJSON type declaration for Flow",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/runner.js"
+  },
+  "author": "Vladimir Kurchatkin <vladimir.kurchatkin@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-bin": "^0.22.0"
+  }
+}
