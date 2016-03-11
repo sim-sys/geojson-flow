@@ -2,7 +2,7 @@
   "name": "geojson-flow",
   "version": "1.0.0",
   "description": "GeoJSON type declarations for Flow",
-  "main": "index.js",
+  "main": "types.js",
   "scripts": {
     "test": "node ./test/runner.js"
   },
