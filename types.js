@@ -120,7 +120,7 @@ export type GeometryCollection = {
 export type Feature = { // TODO make generic
   type: 'Feature',
   geometry: ?GeometryObject,
-  properties: ?{},
+  properties: ?Object,
   id?: number | string // is not specified, but nothing else makes sense
 };
 
