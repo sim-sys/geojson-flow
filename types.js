@@ -117,10 +117,10 @@ export type GeometryCollection = {
  * http://geojson.org/geojson-spec.html#geometry-collection
  */
 
-export type Feature = { // TODO make generic
+export type Feature<T> = {
   type: 'Feature',
   geometry: ?GeometryObject,
-  properties: ?Object,
+  properties: ?T,
   id?: number | string // is not specified, but nothing else makes sense
 };
 
