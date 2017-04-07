@@ -11,10 +11,10 @@ assert(false, `geojson-flow shouldn't be used at runtime`);
  * http://geojson.org/geojson-spec.html#geojson-objects
  */
 
-export type GeoJSONObject =
+export type GeoJSONObject<T> =
   | GeometryObject
-  | Feature
-  | FeatureCollection;
+  | Feature<T>
+  | FeatureCollection<T>;
 
 type Common = { // TODO inline
   crs?: ?CRS,
@@ -117,10 +117,10 @@ export type GeometryCollection = {
  * http://geojson.org/geojson-spec.html#geometry-collection
  */
 
-export type Feature = { // TODO make generic
+export type Feature<T> = {
   type: 'Feature',
   geometry: ?GeometryObject,
-  properties: ?{},
+  properties: ?T,
   id?: number | string // is not specified, but nothing else makes sense
 };
 
@@ -129,9 +129,9 @@ export type Feature = { // TODO make generic
  * http://geojson.org/geojson-spec.html#feature-collection-objects
  */
 
-export type FeatureCollection = { // TODO make generic
+export type FeatureCollection<T> = {
   type: 'FeatureCollection',
-  features: Array<Feature>
+  features: Array<Feature<T>>
 };
 
 /**
