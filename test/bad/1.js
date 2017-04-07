@@ -5,7 +5,7 @@ import type {
 } from '../../types.js';
 
 
-function enumeratePostions(collection: GeoJSONFeatureCollection):Array<[number, number]> {
+function enumeratePostions(collection: GeoJSONFeatureCollection<*>):Array<[number, number]> {
   const r: Array<[number, number]> = [];
   collection.features.forEach(feature => {
     const geometry = feature.geometry;
