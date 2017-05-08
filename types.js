@@ -35,6 +35,11 @@ export type GeometryObject =
   | MultiPolygon
   | GeometryCollection;
 
+type Geometry<K, T> = {
+   type: K;
+   coordinates: T;
+ }
+
 /**
  * 2.1.1. Positions
  * http://geojson.org/geojson-spec.html#positions
@@ -47,60 +52,45 @@ type Position = [number, number];
  * http://geojson.org/geojson-spec.html#point
  */
 
-export type Point = {
-  type: 'Point',
-  coordinates: Position
-};
+export type Point = Geometry<'Point', Position>;
 
 /**
  * 2.1.3. MultiPoint
  * http://geojson.org/geojson-spec.html#multipoint
  */
 
-export type MultiPoint = {
-  type: 'MultiPoint',
-  coordinates: Array<Position>
-};
+export type MultiPoint = Geometry<'MultiPoint', Position[]>;
 
 /**
  * 2.1.4. LineString
  * http://geojson.org/geojson-spec.html#linestring
  */
 
-export type LineString = {
-  type: 'LineString',
-  coordinates: Array<Position> // TODO it should be > 2, but we can't validate it statically (maybe [Position, Position] would work?)
-};
+export type LineString = Geometry<'LineString', Array<number[]>>;
+ // TODO it should be > 2, but we can't validate it statically (maybe [Position, Position] would work?)
+
 
 /**
  * 2.1.5. MultiLineString
  * http://geojson.org/geojson-spec.html#multilinestring
  */
 
-export type MultiLineString = {
-  type: 'MultiLineString',
-  coordinates: Array<Array<Position>>
-};
+export type MultiLineString = Geometry<'MultiLineString', Array<Position[]>>;
 
 /**
  * 2.1.6. Polygon
  * http://geojson.org/geojson-spec.html#polygon
  */
 
-export type Polygon = {
-  type: 'Polygon',
-  coordinates: Array<Array<Position>>
-};
+export type Polygon = Geometry<'Polygon', Array<Position[]>>;
 
 /**
  * 2.1.7. MultiPolygon
  * http://geojson.org/geojson-spec.html#multipolygon
  */
 
-export type MultiPolygon = {
-  type: 'MultiPolygon',
-  coordinates: Array<Array<Array<Position>>>
-};
+export type MultiPolygon = Geometry<'MultiPolygon', Array<Array<Position[]>>>;
+
 
 /**
  * 2.1.8 Geometry Collection
